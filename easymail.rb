@@ -13,6 +13,8 @@ include Sinatra::Partials
 
 require 'hpricot'
 require 'tamtam'
+require 'net/smtp'
+require 'mailfactory'
 
 require 'dm-core'
 require 'dm-timestamps'
@@ -36,6 +38,8 @@ end
 MyMail.auto_upgrade!
 
 helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
 end
 
 get '/favicon.ico' do
@@ -55,6 +59,7 @@ post '/' do
   @mymail.body = process_body
   
   if @mymail.save
+    mail_it
     redirect("/#{@mymail.id}")
   else
     redirect('/')
@@ -87,4 +92,20 @@ def process_body
   (@body/'#salutation').inner_html = @mymail.salutation
   doc = @body.to_s
   @inlined_body = TamTam.inline(:document => doc)
+  @inlined_body = Hpricot.parse(@inlined_body)
+  @final_body = (@inlined_body/'body').inner_html
+end
+
+def mail_it  
+  mail = MailFactory.new()
+  mail.to = @mymail.to
+  mail.from = @mymail.from
+  mail.subject =  @mymail.title
+  mail.text = "This is intended as an HTML email, please view it as HTML."
+  mail.html = @mymail.body
+
+  recepients = [mail.to].flatten.join(',')
+  IO.popen("/usr/sbin/sendmail #{recepients}", 'w+') do |sendmail|
+    sendmail.puts mail.to_s
+  end
 end

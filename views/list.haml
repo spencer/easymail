@@ -1,4 +1,14 @@
 %table
+  %thead
+    %tr
+      %th
+        Title
+      %th
+        To
+      %th
+        created_at
+      %th
+        Actions
   - @mymails.each do |mail|
     %tr
       %td
@@ -8,4 +18,6 @@
       %td
         = mail.created_at
       %td
+        %a{:href => "/#{mail.id}"} Show
+        &nbsp; | &nbsp;
         %a{:href => "/#{mail.id}/delete"} Delete
