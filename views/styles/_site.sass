@@ -1,13 +1,31 @@
+body
+  background-color: #5C643D
+
 fieldset
   padding= !space
-  border: 1px solid #DDD
+  border: 1px solid #BECE7D
+  margin-bottom= !space
+  background-color: #D8EEB0
+  
+  legend
+    padding= !space/2
+    background-color: white
+    color: #5C643D
+    font-size: 0.8em
+
+  label
+    display: block
+    margin-bottom: 0
+
+  textarea, input
+    width: 400px
+  
+  textarea
+    min-height: 100px
   
 .explanation
-  border: 1px solid #84BEE2
-  padding= !space/2
-  width= !space*5
   float: right
-  background-color: #C1D7E2
+  +hn_light
 
 th
   background-color: #333
@@ -17,3 +35,37 @@ th
 
 td
   padding= !space/2
+
+#header
+  margin: 0 auto 20px 0
+  padding-bottom= !space/2
+
+  h1
+    color: #5C643D
+
+#footer
+  margin: 0 auto
+  width: 960px
+  font-size: 0.8em
+
+p.actions
+  border-top: 1px solid #5C643D
+  padding-top= !space
+  margin-top= !space
+  +clearfix
+    
+.button
+  float: right
+  padding= !space/4
+  +rounded_corners
+  text-decoration: none
+  color: white
+  border: 1px solid #5C643D
+  background-color: #8D9439
+
+  &:hover
+    cursor: pointer
+
+.desc
+  font-size: 0.8em
+  font-color: #8D9439

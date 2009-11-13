@@ -1,35 +1,24 @@
 !space = 20px
-!site_width = 960px
+!site_width = 920px
 
 #wrapper
-  width= !site_width
+  width= !site_width - 2
   margin= !space auto
+  padding= !space 
+  border: 1px solid #2F3323
+  background-color: white
+  
 
 .column
   float: left
   margin-left= !space
   
+  
 .row
   +clearfix
   
 .h, .half
-  width= floor(((!site_width - !space)/2))
-  
-.q, .quarter
-  width= floor(((!site_width - (!space*3))/4))
-
-.tq, .threequarters
-  width= floor(((!site_width - !space)/4*3))
-  
-  .half
-    width= floor((((!site_width - !space)/4*3) -!space)/2)
-    
-.th, .third
-  width= floor(((!site_width - !space*2)/3))
-  //width: 306px
-  
-.tt, .twothirds
-  width= floor(((!site_width - !space)/3*2))
+  width: 448px
 
 .first
   margin-left: 0

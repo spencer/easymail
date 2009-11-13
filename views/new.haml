@@ -1,42 +1,43 @@
-%h1 Easymail - Stylish Mail for everyone
-
+.explanation
+  Simply fill in the details below, supply an HTML file to use as a template. Then Send. 
 %h2 Create your email
+
 %form{:action => '/', :method => 'post', :enctype => 'multipart'}
-  %fieldset
-    %legend To / From
-    .column.first
-      %label To
-      %input{:name => "mymail[to]"}
-    .column
-      .explanation
+  .row
+    .column.half.first
+      %fieldset
+        %legend To / From
         %p
-          This will be inserted where you put 
-          "<id="saluation"></>"
-          in your template
-      %label Salutation
-      %input{:name => "mymail[salutation]"}
-    .column
-      %label From
-      %input{:name => "mymail[from]"}
-    .column
-    
-  %fieldset
-    %legend Message & Main Content
-    %p
-      %label Title
-      %input{:name => "mymail[title]"} 
-    %p
-      .explanation
+          %label
+            To 
+            %span.desc (Who are you sending your e-mail to)
+          %input{:name => "mymail[to]"}
         %p
-          This will be inserted where you put 
-          "<id="message"></>"
-          in your template
-      %label Your Message
-      %br
-      %textarea{:name => "mymail[message]"}
-      
-    %label Upload your HTML template file
-    %br
-    %input{:type => "file", :name => 'template'}
+          %label
+            Salutation
+            %span.desc (Hello *Saluation* will be inserted)
+          %input{:name => "mymail[salutation]"}
+        %p
+          %label
+            From
+            %span.desc (Your Email address)
+          %input{:name => "mymail[from]"}
   
-  %input{:type => 'submit'}
+    .column.half
+      %fieldset
+        %legend Message & Main Content
+        %p
+          %label
+            Title
+            %span.desc (The Subject of your e-mail.)
+          %input{:name => "mymail[title]"} 
+        %p
+          %label
+            Your Message
+            %span.desc (This will be inserted into the e-mail.)
+          %textarea{:name => "mymail[message]"}
+        
+        %label Upload your HTML template file
+        %input{:type => "file", :name => 'template'}
+  .row  
+    %input{:type => 'submit', :value => 'Send Your Email', :class => 'button'}

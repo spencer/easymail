@@ -89,7 +89,7 @@ end
 def process_body
   @body = Hpricot.parse(params[:template][:tempfile].read)
   (@body/'#message').inner_html = @mymail.message
-  (@body/'#salutation').inner_html = @mymail.salutation
+  (@body/'#salutation').inner_html = "Hello #{@mymail.salutation}"
   doc = @body.to_s
   @inlined_body = TamTam.inline(:document => doc)
   @inlined_body = Hpricot.parse(@inlined_body)
@@ -100,7 +100,7 @@ def mail_it
   mail = MailFactory.new()
   mail.to = @mymail.to
   mail.from = @mymail.from
-  mail.subject =  @mymail.title
+  mail.subject =  "Hello #{mymail.saluation}. #{@mymail.title}"
   mail.text = "This is intended as an HTML email, please view it as HTML."
   mail.html = @mymail.body
 
