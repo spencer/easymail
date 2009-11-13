@@ -1,0 +1,39 @@
+!space = 20px
+!site_width = 960px
+
+
+.column
+  float: left
+  margin-left= !space
+  
+.row
+  +clearfix
+  
+.h, .half
+  width= floor(((!site_width - !space)/2))
+  
+.q, .quarter
+  width= floor(((!site_width - (!space*3))/4))
+
+.tq, .threequarters
+  width= floor(((!site_width - !space)/4*3))
+  
+  .half
+    width= floor((((!site_width - !space)/4*3) -!space)/2)
+    
+.th, .third
+  width= floor(((!site_width - !space*2)/3))
+  //width: 306px
+  
+.tt, .twothirds
+  width= floor(((!site_width - !space)/3*2))
+
+.first
+  margin-left: 0
+
+.pad
+  padding= !space
+  
+.pad-top-bottom
+  padding-top= !space
+  padding-bottom= !space

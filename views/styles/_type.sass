@@ -1,0 +1,58 @@
+p, li, td, tr
+  color: #333
+  font-weight: normal
+  +hn
+  margin-bottom: 20px
+  line-height: 1.25em
+
+h1, h2, h3, h4, h5, h6
+  color= !fresh_green
+  
+  a
+    font-weight: normal
+    color= !fresh_green
+    
+//24px on 40px
+h1
+  +hn_light
+  font-size: 1.5em
+  line-height: 1.3333em 
+  margin-bottom: 0.83333em
+
+//20px on 40px
+h2
+  +hn
+  font-size: 1.25em
+  line-height: 1em
+  margin-bottom: 1em
+  //18px on 40px
+
+h3
+  +hn_bold
+  font-size: 1.125em
+  line-height: 1.111em
+  margin-bottom: 1.111em
+
+//16px on 20px
+h4
+  +hn
+  font-size: 1em
+  margin-bottom: 1em
+
+//14px on 20px
+h5
+  +hn_bold
+  font-size: 0.875em
+  line-height: 1.429em
+  
+h6
+  +hn
+  font-size: 0.75em
+  
+  
+//Type for forms
+input, label, textarea
+  padding: 0.3em
+  margin-bottom: 1.25em
+  +hn
+  font-size: 1em
