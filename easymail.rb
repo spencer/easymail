@@ -100,7 +100,7 @@ def mail_it
   mail = MailFactory.new()
   mail.to = @mymail.to
   mail.from = @mymail.from
-  mail.subject =  "Hello #{mymail.saluation}. #{@mymail.title}"
+  mail.subject =  "Hello #{@mymail.salutation}. #{@mymail.title}"
   mail.text = "This is intended as an HTML email, please view it as HTML."
   mail.html = @mymail.body
 
