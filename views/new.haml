@@ -1,0 +1,42 @@
+%h1 Easymail - Stylish Mail for everyone
+
+%h2 Create your email
+%form{:action => '/', :method => 'post', :enctype => 'multipart'}
+  %fieldset
+    %legend To / From
+    .column.first
+      %label To
+      %input{:name => "mymail[to]"}
+    .column
+      .explanation
+        %p
+          This will be inserted where you put 
+          "<id="saluation"></>"
+          in your template
+      %label Salutation
+      %input{:name => "mymail[salutation]"}
+    .column
+      %label From
+      %input{:name => "mymail[from]"}
+    .column
+    
+  %fieldset
+    %legend Message & Main Content
+    %p
+      %label Title
+      %input{:name => "mymail[title]"} 
+    %p
+      .explanation
+        %p
+          This will be inserted where you put 
+          "<id="message"></>"
+          in your template
+      %label Your Message
+      %br
+      %textarea{:name => "mymail[message]"}
+      
+    %label Upload your HTML template file
+    %br
+    %input{:type => "file", :name => 'template'}
+  
+  %input{:type => 'submit'}

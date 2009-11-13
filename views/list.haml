@@ -1,0 +1,11 @@
+%table
+  - @mymails.each do |mail|
+    %tr
+      %td
+        = mail.title
+      %td
+        = mail.to
+      %td
+        = mail.created_at
+      %td
+        %a{:href => "/#{mail.id}/delete"} Delete
